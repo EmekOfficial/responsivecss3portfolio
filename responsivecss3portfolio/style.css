@@ -1,0 +1,128 @@
+/* VERDİĞİMİZ PADDİNG VE MARGİN DEĞERLERİNİN KUTUNUN BOYUTUNU ETKİLEMEMESİ İÇİN
+        box-sizing KULLANDIK
+        her elemanın kendine özgü margin ve padding değeri vardır
+        ve tarayıcıdan tarayıcıya değişir
+        sıkıntı olmaması için 2 değeri de her şey için sıfırlıyoruz
+        */
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*KUTU GENİŞLİKLERİ COL WİDTHS*/
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.36%;}
+.col-12{width: 100%;}
+
+/*SATIRLAR*/
+.row{
+    border: blue solid 2px; 
+    background-color: cornflowerblue;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*SATIRLAR YAN YANA GELMESİN*/
+
+        /*.row classı uygulanmış elemandan sonrasını seç*/
+        .row::after{
+            /*yanını temizle*/
+            content: "";
+            /*solundaki ve sağındaki floatları sil*/
+            clear: both;
+            /*ve bunları bir tablo gibi göster*/
+            display: table;
+        }
+
+/*tepkisel resim*/
+img{
+    width: 100%;
+    height: auto;
+}
+
+/*sütunların sola yaslandırılması
+        col- ile başlayan tüm* sınıflara uygula*/
+
+        [class*="col-"]{
+            float: left;
+            padding: 5px;
+           /* border: 1px solid red; */
+            border-radius: 8px;
+        }
+
+/*500px den daha küçük ekranlar için*/
+@media screen and (max-width:500px){
+    [class*="col-"]{width: 100%;}
+}
+
+/*kutu yükseklikleri*/
+#ust{min-height: 50px;}
+#menu{min-height: 50px;}
+#orta{min-height: 400px;}
+#alt{min-height: 50px;}
+
+/*sosyal medya ikonları*/
+#ikon{
+    width: 50px;
+    float: right;
+    margin-right: 10px;
+}
+
+/*ana menü kodları*/
+#menu #anamenu ul{
+    list-style-type: none;
+}
+
+#menu #anamenu ul li{
+    border: 3px solid blue;
+    width: 25%;
+    float: left;
+    background-color: chocolate;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+/*500px den daha küçük ekranlar için tepkisel buton*/
+@media screen and (max-width:500px){
+    #menu #anamenu ul li{width: 100%;}
+}
+
+/*ana menü linkleri*/
+#menu #anamenu a{
+    color: cornsilk;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+}
+
+#menu #anamenu a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
+#menu #anamenu a:active,a:visited{
+    color: blueviolet;
+}
+
+/*alt menü*/
+#alt #altmenu p{
+    text-align: center;
+
+}
+
+#alt #altmenu a{
+    color:maroon;
+}
